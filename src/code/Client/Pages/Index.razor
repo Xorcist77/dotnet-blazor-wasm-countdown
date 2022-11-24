@@ -1,0 +1,53 @@
+﻿@page "/"
+
+@using System.Timers;
+
+<PageTitle>Coming Soon!</PageTitle>
+
+<div class="backgroundImage">
+  <div class="content">
+    <p>Website Is Under Maintenance</p>
+    <h1>We're <span>Launching</span> Soon</h1>
+    <div class="launch-timer">
+      <div>
+        <p>@timeRemaining.Days.ToString("00")</p>
+        <span>Days</span>
+      </div>
+      <div>
+        <p>@timeRemaining.Hours.ToString("00")</p>
+        <span>Hours</span>
+      </div>
+      <div>
+        <p>@timeRemaining.Minutes.ToString("00")</p>
+        <span>Minutes</span>
+      </div>
+      <div>
+        <p>@timeRemaining.Seconds.ToString("00")</p>
+        <span>Seconds</span>
+      </div>
+    </div>
+    <button type="button">Learn More</button>
+  </div>
+  <img src="/images/rocket.png" class="rocket" />
+</div>
+
+@code {
+  private Timer timer = new(1000);
+  private DateTime launchDate;
+  private TimeSpan timeRemaining;
+
+  protected override async Task OnInitializedAsync() {
+    launchDate = DateTime.Now.AddDays(30);
+    timer.Elapsed += (sender, EventArgs) => CountDown();
+    timer.Start();
+    await base.OnInitializedAsync();
+  }
+
+  private void CountDown() {
+    timeRemaining = launchDate - DateTime.Now;
+    if (timeRemaining.TotalSeconds <= 0) {
+      timer.Stop();
+    }
+    StateHasChanged();
+  }
+}

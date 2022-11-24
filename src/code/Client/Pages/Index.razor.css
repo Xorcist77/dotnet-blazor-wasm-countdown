@@ -1,0 +1,72 @@
+﻿.backgroundImage {
+  width: 100vw;
+  height: 100vh;
+  padding: 0 8%;
+  background-image: url(/images/background.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  color: #ffffff;
+  transform: translateY(-50%);
+}
+
+.content h1 {
+  font-size: 64px;
+  font-weight: 600;
+}
+
+.content h1 span {
+  color: #ff3753;
+}
+
+.content button {
+  background: transparent;
+  border: 2px solid #ffffff;
+  outline: none;
+  padding: 12px 25px;
+  color: #ffffff;
+  display: flex;
+  align-items:center;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.launch-timer {
+  display: flex;
+}
+
+.launch-timer div {
+  flex-basis: 150px;
+}
+
+.launch-timer div p {
+  font-size: 60px;
+  margin-bottom: -14px;
+}
+
+.rocket {
+  width: 250px;
+  position: absolute;
+  right: 10%;
+  bottom: 0;
+  animation: rocket 4s linear infinite;
+}
+
+@keyframes rocket {
+  0% {
+    bottom: 0;
+    opacity: 0;
+  }
+  50% {
+    bottom: 50%;
+    opacity: 1;
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+  }
+}
