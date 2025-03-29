@@ -2,4 +2,4 @@ A simple coming soon page implemented in Blazor WASM (based on a video tutorial 
 
 https://www.youtube.com/watch?v=XCUiQ1Tz3n8
 
-![til](./CountDown.gif)
+![CountDown](./CountDown.gif)
